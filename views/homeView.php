@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,7 +19,7 @@
         <div class="card-body">
           <h5 class="card-title">Liste médicaments</h5>
           <p class="card-text">Consultez aisément notre répertoire de médicaments.</p>
-          <a href="listView.php" class="btn btn-primary">Accédez à notre liste.</a>
+          <a href="?action=listemedicaments" class="btn btn-primary">Accédez à notre liste</a>
         </div>
       </div>
 
