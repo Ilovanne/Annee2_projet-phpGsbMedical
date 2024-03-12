@@ -19,6 +19,10 @@ if(isset($_GET["action"])) {
         case "listemedicaments":
             afficherListeMedicaments();
             break;
+
+        case "detailsmedicament":
+            afficherDetailsMedicament();
+            break;
     }
 
 } else {

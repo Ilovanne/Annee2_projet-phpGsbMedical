@@ -32,12 +32,16 @@ function getMedics(){
     echo json_encode($response);
 }
 
-function getMedic($id = 0){
+function getMedic($id){
     global $conn;
 
-    $whereCondition = ($id != 0) ? " WHERE medicaments.id = :id" : "";
+    if (!is_numeric($id) || $id == 0) {
+        http_response_code(404);
+        echo json_encode(array("message" => "L'ID du médicament n'est pas valide."));
+        return;
+    }
 
-    $queryMedic = "SELECT * FROM medicaments" . $whereCondition;
+    $queryMedic = "SELECT * FROM medicaments WHERE medicaments.id = :id";
 
     $responseMedic = array();
 
@@ -50,6 +54,12 @@ function getMedic($id = 0){
 
     $result->execute();
 
+    if ($result->rowCount() == 0) {
+        http_response_code(404);
+        echo json_encode(array("message" => "Erreur 404"));
+        return;
+    }
+
     while($row = $result->fetch()){
         $responseMedic[] = $row;
     }
@@ -58,7 +68,7 @@ function getMedic($id = 0){
 
     $queryEffetsTherapeutiques = "SELECT liste_effets_therapeutiques.effet AS effets_therapeutiques FROM medicaments
         JOIN effet_therapeutique ON effet_therapeutique.id_medicament = medicaments.id
-        JOIN liste_effets_therapeutiques ON liste_effets_therapeutiques.id = effet_therapeutique.id_effet" . $whereCondition;
+        JOIN liste_effets_therapeutiques ON liste_effets_therapeutiques.id = effet_therapeutique.id_effet WHERE medicaments.id = :id";
 
     $responseEffetsTherapeutiques = array();
 
@@ -78,7 +88,7 @@ function getMedic($id = 0){
 
     $queryEffetsSecondaires = "SELECT liste_effets_secondaires.effet AS effets_secondaires FROM medicaments
         JOIN effet_secondaire ON effet_secondaire.id_medicament = medicaments.id
-        JOIN liste_effets_secondaires ON liste_effets_secondaires.id = effet_secondaire.id_effet" . $whereCondition;
+        JOIN liste_effets_secondaires ON liste_effets_secondaires.id = effet_secondaire.id_effet WHERE medicaments.id = :id";
 
     $responseEffetsSecondaires = array();
 

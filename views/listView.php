@@ -29,7 +29,7 @@
             <td><?= $medicament->nom ?></td>
             <td><?= $medicament->date_creation ?></td>
             <td><?= $medicament->laboratoire_createur ?></td>
-            <td><a href="notFoundView.php" class="btn btn-primary">Détails</a></td>
+            <td><a href="?action=detailsmedicament&id=<?= $medicament->id ?>" class="btn btn-primary">Détails</a></td>
           </tr>
         <?php endforeach; ?>
       </tbody>
