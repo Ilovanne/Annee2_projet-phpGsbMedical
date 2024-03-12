@@ -1,6 +1,7 @@
 <?php
 
-require_once "models/gsbModel.php";
+require_once "models/ActivModels.php";
+require_once "models/MedicModels.php";
 require_once "controllers/controllers.php";
 
 if(isset($_GET["action"])) {
@@ -13,6 +14,10 @@ if(isset($_GET["action"])) {
             break;
         default:
             notFound();
+            break;
+        
+        case "listemedicaments":
+            afficherListeMedicaments();
             break;
     }
 

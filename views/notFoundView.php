@@ -16,7 +16,7 @@
 
         <p class="lead">Désolé, la page que vous recherchez est introuvable.</p>
 
-        <a class="btn btn-primary" href="/projet-3-php">Retour à la page d'accueil</a>
+        <a class="btn btn-primary" href="?action=home">Retour à la page d'accueil</a>
 
     </div>
 
