@@ -39,5 +39,27 @@ function getActiv($id){
     return json_decode($result);
 }
 
+function insererUtilisateur($nomU, $prenomU, $mailU){
+        
+    $url = "http://localhost/projet-3-php/api/activites?action=nouvelutilisateur";
+
+    $data = array(
+        "nom" => $nomU,
+        "prenom" => $prenomU,
+        "mail" => $mailU
+    );
+
+    $option = array(
+        "http" => array(
+            "method" => "POST",
+            "header" => "Content-Type: application/x-www-form-urlencoded\r\n",
+            "content" => http_build_query($data)
+        )
+    );
+
+    $context = stream_context_create($option);
+    $result = file_get_contents($url, false, $context);
+}
+
 
 ?>

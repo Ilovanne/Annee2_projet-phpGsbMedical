@@ -15,20 +15,20 @@
     <h1 class="text-center">Inscription aux Événements</h1>
 
     <!-- Formulaire d'inscription -->
-    <form>
+    <form method="post" action="index.php" >
       <div class="form-group">
         <label for="nom">Nom :</label>
-        <input type="text" class="form-control" id="nom" placeholder="Entrez votre nom" required>
+        <input type="text" class="form-control" id="nom" name="nom" placeholder="Entrez votre nom" required>
       </div>
       <div class="form-group">
         <label for="prenom">Prénom :</label>
-        <input type="text" class="form-control" id="prenom" placeholder="Entrez votre prénom" required>
+        <input type="text" class="form-control" id="prenom" name="prenom" placeholder="Entrez votre prénom" required>
       </div>
       <div class="form-group">
         <label for="email">Email :</label>
-        <input type="email" class="form-control" id="email" placeholder="Entrez votre adresse email" required>
+        <input type="email" class="form-control" id="email" name="mail" placeholder="Entrez votre adresse email" required>
       </div>
-      <button type="submit" class="btn btn-primary">S'inscrire</button>
+      <button type="submit" name="action" value="inscription" class="btn btn-primary">S'inscrire</button>
       <div class="mt-4">
       <a href="?action=listeactivites" class="btn btn-primary">Retour à l'Accueil</a>
     </div>
