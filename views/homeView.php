@@ -14,7 +14,7 @@
   <div class="container mt-5">
     <!-- Ajout du logo à gauche du titre -->
     <h1 class="text-center">
-      <img src="views/downloads/Logo_Colore.png" alt="Logo GSB Medical" style="width: 50px; height: auto; margin-right: 20px;">
+      <img src="views/downloads/Logo_Colore.png" alt="Logo GSB Medical" style="width: 100px; height: auto; margin-right: 20px;">
       Accueil : Accéder à nos services
     </h1>
     <h3 class="text-center">Nino FEDOU - Mathias HANY - Stefan FLOURENCE </h3>
