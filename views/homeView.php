@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Acceuil GSB : Projet 3 php</title>
   <!-- Ajouter le lien vers Bootstrap CSS -->
-  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="views/bootstrap/css/bootstrap.min.css">
 </head>
 <body>
 
@@ -27,7 +27,7 @@
         <div class="card-body">
           <h5 class="card-title">Inscriptions aux événements</h5>
           <p class="card-text">Découvrez les événements proposés par notre société. Profitez d'une inscription gratuite pour rester informé(e) sur notre actualité et sur les avancées dans le domaine médical.</p>
-          <a href="inscriptionView.php" class="btn btn-primary">Accéder aux évenements</a>
+          <a href="?action=listeactivites" class="btn btn-primary">Accéder aux évenements</a>
         </div>
       </div>
 
@@ -41,10 +41,5 @@
     </div>
 
   </div>
-
-  <!-- Ajouter le lien vers Bootstrap JS et les dépendances -->
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

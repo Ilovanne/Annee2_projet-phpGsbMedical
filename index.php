@@ -23,6 +23,11 @@ if(isset($_GET["action"])) {
         case "detailsmedicament":
             afficherDetailsMedicament();
             break;
+
+        case "listeactivites":
+            afficherListeActivites();
+            break;
+
         case "mentions":
             afficherMentions();
             break;

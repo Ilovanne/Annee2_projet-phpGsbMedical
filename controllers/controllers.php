@@ -12,7 +12,7 @@ function afficherListeMedicaments(){
 
     $medicaments = getMedics();
 
-    require_once "views/listView.php";
+    require_once "views/listMedicView.php";
 }
 
 function afficherDetailsMedicament(){
@@ -28,6 +28,10 @@ function afficherDetailsMedicament(){
 
     require_once "views/detailsView.php";
 
+}
+
+function afficherListeActivites(){
+    require_once "views/listActivView.php";
 }
 
 function afficherMentions(){
