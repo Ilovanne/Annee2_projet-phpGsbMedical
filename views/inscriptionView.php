@@ -12,11 +12,13 @@
 <div class="container mt-5">
     <h1 class="text-center">
         <img src="views/downloads/Logo_Colore.png" alt="Logo GSB Medical" style="width: 100px; height: auto; margin-right: 20px;">
-        Inscription :
+        Inscription
     </h1>
 
+    <h3><?= $activite[0]->nom; ?></h3>
+
     <form method="post">
-        <input type="hidden" name="idActivite" value=<?= $_GET["activite"] ?>>
+        <input type="hidden" name="idActivite" value=<?= $activite[0]->id; ?>>
         <div class="form-group">
             <label for="nom">Nom :</label>
             <input type="text" class="form-control" id="nom" name="nom" placeholder="Entrez votre nom" required>
