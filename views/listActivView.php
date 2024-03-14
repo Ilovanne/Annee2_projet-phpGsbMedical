@@ -61,14 +61,14 @@
                 <h5 class="card-title"><?= $activite->nom; ?></h5>
                 <p class="card-text"><?= $activite->description; ?></p>
                 <p class="card-text"><?php echo date('d/m/Y H:i', strtotime($activite->date_heure)); ?></p>
-                <a href="?action=inscription&activite=<?= $activite->id; ?>" class="btn btn-primary">Inscription</a>
+                <a href="inscription?activite=<?= $activite->id; ?>" class="btn btn-primary">Inscription</a>
             </div>
         </div>
     <?php endforeach; ?>
 </div>
 
 <div class="mt-4">
-    <a href="?action=home" class="btn btn-primary">Retour à l'Accueil</a>
+    <a href="home" class="btn btn-primary">Retour à l'Accueil</a>
 </div>
 
 </div>

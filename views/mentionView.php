@@ -25,7 +25,7 @@
     </ul>
 
     <div class="mt-4">
-        <a href="?action=home" class="btn btn-primary">Retour à l'Accueil</a>
+        <a href="home" class="btn btn-primary">Retour à l'Accueil</a>
     </div>
 
 </div>

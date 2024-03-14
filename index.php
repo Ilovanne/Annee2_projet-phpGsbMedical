@@ -24,15 +24,15 @@ if(isset($_GET["action"])) {
             notFound();
             break;
         
-        case "listemedicaments":
+        case "medicaments":
             afficherListeMedicaments();
             break;
 
-        case "detailsmedicament":
+        case "details":
             afficherDetailsMedicament();
             break;
 
-        case "listeactivites":
+        case "activites":
             afficherListeActivites();
             break;
         
@@ -40,7 +40,7 @@ if(isset($_GET["action"])) {
             afficherInscription();
             break;
 
-        case "mentions":
+        case "legal":
             afficherMentions();
             break;
     }

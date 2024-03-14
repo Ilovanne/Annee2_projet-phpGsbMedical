@@ -31,7 +31,7 @@
         </div>
         <button type="submit" name="action" value="inscription" class="btn btn-primary">S'inscrire</button>
         <div class="mt-4">
-            <a href="?action=listeactivites" class="btn btn-primary">Retour aux activités</a>
+            <a href="activites" class="btn btn-primary">Retour aux activités</a>
         </div>
     </form>
 </div>

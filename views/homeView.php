@@ -25,7 +25,7 @@
             <div class="card-body">
                 <h5 class="card-title">Liste médicaments</h5>
                 <p class="card-text">Consultez aisément notre répertoire de médicaments.</p>
-                <a href="?action=listemedicaments" class="btn btn-primary">Accédez à notre liste</a>
+                <a href="medicaments" class="btn btn-primary">Accédez à notre liste</a>
             </div>
         </div>
 
@@ -33,7 +33,7 @@
             <div class="card-body">
                 <h5 class="card-title">Inscriptions aux événements</h5>
                 <p class="card-text">Découvrez les événements proposés par notre société. Profitez d'une inscription gratuite pour rester informé(e) sur notre actualité et sur les avancées dans le domaine médical.</p>
-                <a href="?action=listeactivites" class="btn btn-primary">Accéder aux évenements</a>
+                <a href="activites" class="btn btn-primary">Accéder aux évenements</a>
             </div>
         </div>
 
@@ -41,7 +41,7 @@
             <div class="card-body">
                 <h5 class="card-title">Mention juridique</h5>
                 <p class="card-text">Retrouvez l'ensemble de nos détails juridiques concernant notre site Internet.</p>
-                <a href="?action=mentions" class="btn btn-primary">Accéder à la Page</a>
+                <a href="legal" class="btn btn-primary">Accéder à la Page</a>
             </div>
         </div>
     </div>

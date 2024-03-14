@@ -1,0 +1,10 @@
+RewriteEngine On
+
+# Rediriger toutes les requêtes qui ne correspondent pas à un fichier existant ou répertoire existant
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.+)$ index.php?action=$1 [QSA,L]
+
+<Files *.json>
+    Deny from all
+</Files>

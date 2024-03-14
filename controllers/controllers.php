@@ -53,9 +53,9 @@ function inscriptionActivite(){
     $resultat = inscrireActivite($nom, $prenom, $mail, $idActivite);
 
     if (json_decode($resultat)->status_message === "user_successfully_inscribed"){
-        header('Location: ?action=listeactivites&status=success');
+        header('Location: activites?status=success');
     } else {
-        header('Location: ?action=listeactivites&status=error');
+        header('Location: activites?status=error');
     }
 }
 
