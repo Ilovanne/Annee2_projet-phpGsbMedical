@@ -16,10 +16,7 @@ switch($request_method){
         break;
     
     case "POST":
-        $action = $_GET["action"];
-        if($action === "nouvelutilisateur"){
-            insertUt();
-        }
+        inscrireActivite();
         break;
 }
 
@@ -64,7 +61,7 @@ function getActiv($id){
 
     if ($result->rowCount() == 0) {
         http_response_code(404);
-        echo json_encode(array("message" => "Erreur 404"));
+        echo json_encode(array("message" => "404"));
         return;
     }
 
@@ -77,29 +74,37 @@ function getActiv($id){
     echo json_encode($responseActivites);
 }
 
-function insertUt(){
-
+function inscrireActivite(){
     global $conn;
 
     $nomU = $_POST["nom"];
     $prenomU = $_POST["prenom"];
     $mailU = $_POST["mail"];
+    $idActivite = $_POST["idActivite"];
 
-    $query = "INSERT INTO utilisateurs (email, nom, prenom) VALUES ('$mailU', '$nomU', '$prenomU')";
+    $userCheckQuery = "SELECT * FROM utilisateurs WHERE email = '$mailU'";
+    $userCheckResult = $conn->query($userCheckQuery);
 
-    $conn->query("SET NAMES 'utf8'");
+    if ($userCheckResult->rowCount() == 0) {
+        $insertUserQuery = "INSERT INTO utilisateurs (email, nom, prenom) VALUES ('$mailU', '$nomU', '$prenomU')";
+        $conn->query($insertUserQuery);
+    }
 
-    if ($conn->query($query)) {
-        $response = array(
-            "status" => 1,
-            "status_message" => "Utilisateur ajouté avec succès."
-        );
-    } else {
-        $errorInfo = $conn->errorInfo();
-        $errorMessage = isset($errorInfo[2]) ? $errorInfo[2] : "Erreur inconnue"; // Récupération du message d'erreur
+    $activityCheckQuery = "SELECT * FROM est_inscrit WHERE id_activite = '$idActivite' AND email = '$mailU'";
+    $activityCheckResult = $conn->query($activityCheckQuery);
+
+    if ($activityCheckResult->rowCount() > 0) {
         $response = array(
             "status" => 0,
-            "status_message" => "ERREUR! " . $errorMessage
+            "status_message" => "user_already_inscribed"
+        );
+    } else {
+        $insertActivityQuery = "INSERT INTO est_inscrit (id_activite, email) VALUES ('$idActivite', '$mailU')";
+        $conn->query($insertActivityQuery);
+
+        $response = array(
+            "status" => 1,
+            "status_message" => "user_successfully_inscribed"
         );
     }
 
