@@ -27,6 +27,11 @@ function afficherDetailsMedicament(){
     }
 
     require_once "views/detailsView.php";
+
+}
+
+function afficherMentions(){
+    require_once "views/mentionView.php";
 }
 
 ?>

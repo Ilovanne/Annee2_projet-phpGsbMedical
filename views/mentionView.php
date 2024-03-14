@@ -22,7 +22,7 @@
     </ul>
 
     <div class="mt-4">
-      <a href="homeView.php" class="btn btn-primary">Retour à l'Accueil</a>
+      <a href="?action=home" class="btn btn-primary">Retour à l'Accueil</a>
     </div>
 
   </div>

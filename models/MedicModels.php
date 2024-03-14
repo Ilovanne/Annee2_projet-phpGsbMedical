@@ -29,11 +29,9 @@ function getMedic($id){
     $context = stream_context_create($option);
     $result = file_get_contents($url, false, $context);
 
-    // Vérifier le statut HTTP
     $httpStatus = $http_response_header[0];
-    $statusCode = explode(' ', $httpStatus)[1]; // Extraire le code de statut HTTP
+    $statusCode = explode(' ', $httpStatus)[1];
 
-    // Vérifier si le statut est 404
     if ($statusCode == "404") {
         return null;
     }

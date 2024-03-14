@@ -35,7 +35,7 @@
         <div class="card-body">
           <h5 class="card-title">Mention juridique</h5>
           <p class="card-text">Retrouvez l'ensemble de nos détails juridiques concernant notre site Internet.</p>
-          <a href="mentionView.php" class="btn btn-primary">Accéder à la Page</a>
+          <a href="?action=mentions" class="btn btn-primary">Accéder à la Page</a>
         </div>
       </div>
     </div>

@@ -23,6 +23,9 @@ if(isset($_GET["action"])) {
         case "detailsmedicament":
             afficherDetailsMedicament();
             break;
+        case "mentions":
+            afficherMentions();
+            break;
     }
 
 } else {
