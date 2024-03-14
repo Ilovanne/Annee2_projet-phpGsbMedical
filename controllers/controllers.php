@@ -23,10 +23,9 @@ function afficherDetailsMedicament(){
 
     if($medicament == null) {
         notFound();
-        exit();
+    } else {
+        require_once "views/detailsView.php";
     }
-
-    require_once "views/detailsView.php";
 
 }
 
@@ -45,9 +44,19 @@ function afficherMentions(){
     require_once "views/mentionView.php";
 }
 
-function appelInsererUtilisateur($nomU, $prenomU, $mailU){
+function inscriptionActivite(){
+    $nom = $_POST['nom'];
+    $prenom = $_POST['prenom'];
+    $mail = $_POST['mail'];
+    $idActivite = $_POST['idActivite'];
 
-    insererUtilisateur($nomU, $prenomU, $mailU);
+    $resultat = inscrireActivite($nom, $prenom, $mail, $idActivite);
+
+    if (json_decode($resultat)->status_message === "user_successfully_inscribed"){
+        header('Location: ?action=listeactivites&status=success');
+    } else {
+        header('Location: ?action=listeactivites&status=error');
+    }
 }
 
 ?>

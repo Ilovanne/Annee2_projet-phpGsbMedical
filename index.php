@@ -7,8 +7,9 @@ require_once "controllers/controllers.php";
 if(isset($_POST['action'])){
     if($_POST['action'] === "inscription"){
         inscriptionActivite();
-        //appelInsererUtilisateur($_POST['nom'], $_POST['prenom'], $_POST['mail']);
     }
+
+    exit();
 }
 
 if(isset($_GET["action"])) {

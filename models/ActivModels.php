@@ -39,14 +39,15 @@ function getActiv($id){
     return json_decode($result);
 }
 
-function insererUtilisateur($nomU, $prenomU, $mailU){
+function inscrireActivite($nomU, $prenomU, $mailU, $idActivite){
         
-    $url = "http://localhost/projet-3-php/api/activites?action=nouvelutilisateur";
+    $url = "http://localhost/projet-3-php/api/activites";
 
     $data = array(
         "nom" => $nomU,
         "prenom" => $prenomU,
-        "mail" => $mailU
+        "mail" => $mailU,
+        "idActivite" => $idActivite
     );
 
     $option = array(
@@ -59,6 +60,8 @@ function insererUtilisateur($nomU, $prenomU, $mailU){
 
     $context = stream_context_create($option);
     $result = file_get_contents($url, false, $context);
+
+    return $result;
 }
 
 
