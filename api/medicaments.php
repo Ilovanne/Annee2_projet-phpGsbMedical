@@ -36,8 +36,7 @@ function getMedic($id){
     global $conn;
 
     if (!is_numeric($id) || $id == 0) {
-        http_response_code(404);
-        echo json_encode(array("message" => "L'ID du médicament n'est pas valide."));
+        echo json_encode(array("message" => "invalid_id"));
         return;
     }
 
@@ -55,8 +54,7 @@ function getMedic($id){
     $result->execute();
 
     if ($result->rowCount() == 0) {
-        http_response_code(404);
-        echo json_encode(array("message" => "Erreur 404"));
+        echo json_encode(array("message" => "not_found"));
         return;
     }
 
@@ -132,6 +130,7 @@ function getMedic($id){
     header('Content-Type: application/json');
 
     $responseData = array(
+        'message' => 'success',
         'medicament' => $responseMedic,
         'effets_therapeutiques' => $responseEffetsTherapeutiques,
         'effets_secondaires' => $responseEffetsSecondaires,
