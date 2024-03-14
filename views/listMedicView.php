@@ -6,13 +6,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Liste des Médicaments</title>
+  <!-- Ajouter le favicon -->
+  <link rel="icon" href="views\downloads\Logo_Colore.png" type="image/png">
   <!-- Ajouter le lien vers Bootstrap CSS -->
   <link href="views/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
 
   <div class="container mt-5">
-    <h1 class="text-center">Liste des Médicaments</h1>
+  <h1 class="text-center">
+      <img src="views/downloads/Logo_Colore.png" alt="Logo GSB Medical" style="width: 100px; height: auto; margin-right: 20px;">
+      Liste des Médicaments
+    </h1>
 
     <table class="table mt-4">
       <thead>

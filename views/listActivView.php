@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Liste des activités - Projet 3 PHP</title>
+  <!-- Ajouter le favicon -->
+  <link rel="icon" href="views\downloads\Logo_Colore.png" type="image/png">
   <!-- Lien vers Bootstrap CSS -->
   <link rel="stylesheet" href="views/bootstrap/css/bootstrap.min.css">
   <style>
@@ -30,7 +32,10 @@
 <body>
 
   <div class="container mt-5">
-    <h1 class="text-center">Liste des activités</h1>
+  <h1 class="text-center">
+      <img src="views/downloads/Logo_Colore.png" alt="Logo GSB Medical" style="width: 100px; height: auto; margin-right: 20px;">
+      Liste des activités
+    </h1>
     <br> <br>
 
     <div class="d-flex flex-wrap justify-content-between">

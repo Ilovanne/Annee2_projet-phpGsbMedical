@@ -3,14 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Acceuil GSB : Projet 3 php</title>
+  <title>Accueil GSB : Projet 3 php</title>
   <!-- Ajouter le lien vers Bootstrap CSS -->
   <link rel="stylesheet" href="views/bootstrap/css/bootstrap.min.css">
+  <!-- Ajouter le favicon -->
+  <link rel="icon" href="views\downloads\Logo_Colore.png" type="image/png">
 </head>
 <body>
 
   <div class="container mt-5">
-    <h1 class="text-center">Acceuil : Accéder a nos services</h1>
+    <!-- Ajout du logo à gauche du titre -->
+    <h1 class="text-center">
+      <img src="views/downloads/Logo_Colore.png" alt="Logo GSB Medical" style="width: 50px; height: auto; margin-right: 20px;">
+      Accueil : Accéder à nos services
+    </h1>
     <h3 class="text-center">Nino FEDOU - Mathias HANY - Stefan FLOURENCE </h3>
     <br> <br>
 
@@ -39,7 +45,7 @@
         </div>
       </div>
     </div>
-
   </div>
+
 </body>
 </html>
