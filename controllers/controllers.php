@@ -37,7 +37,17 @@ function afficherListeActivites(){
 }
 
 function afficherInscription(){
-    require_once "views/inscriptionView.php";
+
+    $id = $_GET["activite"];
+
+    $activite = getActiv($id);
+
+    if($activite == null){
+        notFound();
+    } else {
+        require_once "views/inscriptionView.php";
+    }
+
 }
 
 function afficherMentions(){

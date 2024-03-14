@@ -29,11 +29,10 @@ function getActiv($id){
     $context = stream_context_create($option);
     $result = file_get_contents($url, false, $context);
 
-    $httpStatus = $http_response_header[0];
-    $statusCode = explode(' ', $httpStatus)[1];
-
-    if ($statusCode == "404") {
-        return null;
+    if(isset(json_decode($result)->message)){
+        if (json_decode($result)->message == "invalid_id" || json_decode($result)->message == "not_found") {
+            return null;
+        }
     }
 
     return json_decode($result);
