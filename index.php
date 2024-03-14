@@ -1,7 +1,5 @@
 <?php
 
-//test
-
 require_once "models/ActivModels.php";
 require_once "models/MedicModels.php";
 require_once "controllers/controllers.php";
