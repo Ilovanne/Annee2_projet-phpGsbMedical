@@ -4,6 +4,12 @@ require_once "models/ActivModels.php";
 require_once "models/MedicModels.php";
 require_once "controllers/controllers.php";
 
+if($_SERVER['REQUEST_METHOD']==='POST'){
+    if($_POST['action'] === "inscription"){
+        
+    }
+}
+
 if(isset($_GET["action"])) {
 
     $action = $_GET["action"];
@@ -28,10 +34,6 @@ if(isset($_GET["action"])) {
             afficherListeActivites();
             break;
 
-        case "inscription":
-            afficherInscription();
-            break;
-
         case "mentions":
             afficherMentions();
             break;
@@ -40,5 +42,6 @@ if(isset($_GET["action"])) {
 } else {
     home();
 }
+
 
 ?>

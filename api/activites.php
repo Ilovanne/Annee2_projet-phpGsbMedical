@@ -69,4 +69,34 @@ function getActiv($id){
     header('Content-Type: application/json');
     echo json_encode($responseActivites);
 }
+
+function insertAd($nomA, $prenomA, $mailA){
+
+
+    // Vérifier la connexion
+    if ($conn->connect_error) {
+        die("Échec de la connexion : " . $conn->connect_error);
+    }
+
+    // Préparer la requête SQL pour insérer un utilisateur
+    $sql = "INSERT INTO utilisateur (mail, nom, prenom) VALUES ('$mailA', '$nomA', '$prenomA')";
+    
+    // Préparer la déclaration
+    $stmt = $conn->prepare($sql);
+
+    // Lier les paramètres à la déclaration
+    $stmt->bind_param($nom, $prenom, $mail);
+
+    // Exécuter la déclaration
+    if ($stmt->execute() === TRUE) {
+        echo "Nouvel utilisateur inscription avec succès.";
+    } else {
+        echo "Erreur lors de l'inscription de l'utilisateur : " . $conn->error;
+    }
+
+    // Fermer la déclaration et la connexion
+    $stmt->close();
+    $conn->close();
+}
+
 ?>
