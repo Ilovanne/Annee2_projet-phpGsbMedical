@@ -45,4 +45,9 @@ function afficherMentions(){
     require_once "views/mentionView.php";
 }
 
+function appelInsererUtilisateur($nomU, $prenomU, $mailU){
+
+    insererUtilisateur($nomU, $prenomU, $mailU);
+}
+
 ?>

@@ -14,6 +14,13 @@ switch($request_method){
             getActivs();
         }
         break;
+    
+    case "POST":
+        $action = $_GET["action"];
+        if($action === "nouvelutilisateur"){
+            insertUt();
+        }
+        break;
 }
 
 function getActivs(){
@@ -70,33 +77,34 @@ function getActiv($id){
     echo json_encode($responseActivites);
 }
 
-function insertAd($nomA, $prenomA, $mailA){
+function insertUt(){
 
+    global $conn;
 
-    // Vérifier la connexion
-    if ($conn->connect_error) {
-        die("Échec de la connexion : " . $conn->connect_error);
-    }
+    $nomU = $_POST["nom"];
+    $prenomU = $_POST["prenom"];
+    $mailU = $_POST["mail"];
 
-    // Préparer la requête SQL pour insérer un utilisateur
-    $sql = "INSERT INTO utilisateur (mail, nom, prenom) VALUES ('$mailA', '$nomA', '$prenomA')";
-    
-    // Préparer la déclaration
-    $stmt = $conn->prepare($sql);
+    $query = "INSERT INTO utilisateurs (email, nom, prenom) VALUES ('$mailU', '$nomU', '$prenomU')";
 
-    // Lier les paramètres à la déclaration
-    $stmt->bind_param($nom, $prenom, $mail);
+    $conn->query("SET NAMES 'utf8'");
 
-    // Exécuter la déclaration
-    if ($stmt->execute() === TRUE) {
-        echo "Nouvel utilisateur inscription avec succès.";
+    if ($conn->query($query)) {
+        $response = array(
+            "status" => 1,
+            "status_message" => "Utilisateur ajouté avec succès."
+        );
     } else {
-        echo "Erreur lors de l'inscription de l'utilisateur : " . $conn->error;
+        $errorInfo = $conn->errorInfo();
+        $errorMessage = isset($errorInfo[2]) ? $errorInfo[2] : "Erreur inconnue"; // Récupération du message d'erreur
+        $response = array(
+            "status" => 0,
+            "status_message" => "ERREUR! " . $errorMessage
+        );
     }
 
-    // Fermer la déclaration et la connexion
-    $stmt->close();
-    $conn->close();
+    header('Content-Type: application/json');
+    echo json_encode($response);
 }
 
 ?>
