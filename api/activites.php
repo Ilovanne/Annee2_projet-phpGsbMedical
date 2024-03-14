@@ -7,7 +7,7 @@ $request_method = $_SERVER["REQUEST_METHOD"];
 switch($request_method){
 
     case "GET":
-        if(!empty($_GET["id"])){
+        if(isset($_GET["id"]) && $_GET["id"] !== ""){
             $id=intval($_GET["id"]);
             getActiv($id);
         }else{
@@ -40,8 +40,13 @@ function getActiv($id){
 
     global $conn;
 
-    if (!is_numeric($id) || $id == 0) {
+    if (!is_numeric($id)) {
         echo json_encode(array("message" => "invalid_id"));
+        return;
+    }
+
+    if ($id === 0) {
+        echo json_encode(array("message" => "not_found"));
         return;
     }
 
