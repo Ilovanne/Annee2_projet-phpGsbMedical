@@ -31,7 +31,14 @@ function afficherDetailsMedicament(){
 }
 
 function afficherListeActivites(){
+
+    $activites = getActivs();
+
     require_once "views/listActivView.php";
+}
+
+function afficherInscription(){
+    require_once "views/inscriptionView.php";
 }
 
 function afficherMentions(){

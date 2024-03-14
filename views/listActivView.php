@@ -14,32 +14,20 @@
     <br> <br>
 
     <div class="d-flex justify-content-between flex-wrap">
-      <div class="card mb-4" style="width: 18rem;">
-        <div class="card-body">
-          <h5 class="card-title">Activité 1</h5>
-          <p class="card-text">Description de l'activité 1.</p>
-          <p class="card-text">01/01/2024</p>
-          <a href="#" class="btn btn-primary">Inscription</a>
+        <?php foreach ($activites as $activite): ?>
+        <div class="card mb-4" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title"><?= $activite->nom; ?></h5>
+                <p class="card-text"><?= $activite->description; ?></p>
+                <p class="card-text"><?php echo date('d/m/Y H:i', strtotime($activite->date_heure)); ?></p>
+                <a href="?action=inscription&activite=<?= $activite->id; ?>" class="btn btn-primary">Inscription</a>
+            </div>
         </div>
-      </div>
+        <?php endforeach; ?>
+    </div>
 
-      <div class="card mb-4" style="width: 18rem;">
-        <div class="card-body">
-          <h5 class="card-title">Activité 2</h5>
-          <p class="card-text">Description de l'activité 2.</p>
-          <p class="card-text">01/01/2024</p>
-          <a href="#" class="btn btn-primary">Inscription</a>
-        </div>
-      </div>
-
-      <div class="card mb-4" style="width: 18rem;">
-        <div class="card-body">
-          <h5 class="card-title">Activité 3</h5>
-          <p class="card-text">Description de l'activité 3.</p>
-          <p class="card-text">01/01/2024</p>
-          <a href="#" class="btn btn-primary">Inscription</a>
-        </div>
-      </div>
+    <div class="mt-4">
+      <a href="?action=home" class="btn btn-primary">Retour à l'Accueil</a>
     </div>
 
   </div>

@@ -28,6 +28,10 @@ if(isset($_GET["action"])) {
             afficherListeActivites();
             break;
 
+        case "inscription":
+            afficherInscription();
+            break;
+
         case "mentions":
             afficherMentions();
             break;
