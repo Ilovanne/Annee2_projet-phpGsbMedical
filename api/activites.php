@@ -41,8 +41,7 @@ function getActiv($id){
     global $conn;
 
     if (!is_numeric($id) || $id == 0) {
-        http_response_code(404);
-        echo json_encode(array("message" => "L'ID de l'activité n'est pas valide."));
+        echo json_encode(array("message" => "invalid_id"));
         return;
     }
 
@@ -60,8 +59,7 @@ function getActiv($id){
     $result->execute();
 
     if ($result->rowCount() == 0) {
-        http_response_code(404);
-        echo json_encode(array("message" => "404"));
+        echo json_encode(array("message" => "not_found"));
         return;
     }
 
