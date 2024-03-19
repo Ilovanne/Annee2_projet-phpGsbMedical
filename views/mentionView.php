@@ -16,7 +16,7 @@
     </h1>
 
     <ul class="list-group mt-4">
-        <li class="list-group-item"><a href="views/downloads/MLD_SCRIPT_SQL.docx" download>Base de donnée</a></li>
+        <li class="list-group-item"><a href="views/downloads/MLD_SCRIPT_SQL.pdf" download>Base de donnée</a></li>
         <li class="list-group-item"><a href="views/downloads/Conditions_d_utilisation.pdf" download>Conditions D'utilisations</a></li>
         <li class="list-group-item"><a href="views/downloads/Charte_d_Utilisation_des_Cookies.pdf" download>Charte d'Utilisation des Cookies</a></li>
         <li class="list-group-item"><a href="views/downloads/Charte_de_confidentialité.pdf" download>Charte de confidentialité</a></li>
