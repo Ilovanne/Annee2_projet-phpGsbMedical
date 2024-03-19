@@ -1,3 +1,5 @@
+<!-- Page d'erreur 404 -->
+
 <!DOCTYPE html>
 <html lang="fr">
 

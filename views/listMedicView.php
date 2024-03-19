@@ -15,6 +15,7 @@
         Liste des Médicaments
     </h1>
 
+    <!-- Création d'un tableau affichant les informations principales des médicaments -->
     <table class="table mt-4">
         <thead>
             <tr>
@@ -25,6 +26,7 @@
             </tr>
         </thead>
         <tbody>
+            <!-- Boucle qui parcourt tous les médicaments récupérés dans le modèle et les ajoute au tableau -->
             <?php foreach($medicaments as $medicament): ?>
             <tr>
                 <td><?= $medicament->nom ?></td>

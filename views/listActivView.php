@@ -31,6 +31,9 @@
 
 <div class="container mt-5">
 
+<!-- Récupérer le paramàtre GET "status" pour déterminer si l'utilisateur vient d'essayer de s'inscrire à une activité -->
+<!-- Si le paramètre est "error", afficher un message d'erreur -->
+<!-- Si le paramètre est "success", afficher un message de succès -->
 <?php if (isset($_GET['status'])): ?>
     <?php if ($_GET['status'] === 'error'): ?>
         <div class="text-center mt-3">
@@ -55,6 +58,7 @@
 <br> <br>
 
 <div class="d-flex flex-wrap justify-content-between">
+    <!-- Boucle qui parcourt toutes les activités récupérés dans le modèle et les affiche -->
     <?php foreach ($activites as $activite): ?>
         <div class="card">
             <div class="card-body">

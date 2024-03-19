@@ -1,5 +1,6 @@
 <?php
 
+//Connexion à la base de données
 try {
     $servername = "localhost";
     $username = "root";

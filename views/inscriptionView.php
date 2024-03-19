@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,6 +15,7 @@
         Inscription
     </h1>
 
+    <!-- Afficher le nom de l'activité à laquelle l'utilisateur tente de s'inscrire -->
     <h3><?= $activite[0]->nom; ?></h3>
 
     <form method="post">

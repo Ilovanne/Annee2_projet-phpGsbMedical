@@ -15,6 +15,7 @@
             </div>
             <div class="card-body">
                 <h5>Nom du médicament</h5>
+                <!-- Afficher les données du médicament -->
                 <p class="lead"><?= $medicament->medicament[0]->nom; ?></p>
 
                 <h5>Date de Création</h5>
@@ -28,6 +29,7 @@
 
                 <h5>Effets Thérapeutiques</h5>
                 <ul>
+                    <!-- Boucle qui parcourt tous les effets thérapeutiques -->
                     <?php foreach($medicament->effets_therapeutiques as $effet_therapeutique): ?>
                         <li class="lead"><?= $effet_therapeutique->effets_therapeutiques; ?></li>
                     <?php endforeach; ?>
@@ -35,6 +37,7 @@
 
                 <h5>Effets Secondaires</h5>
                 <ul>
+                    <!-- Boucle qui parcourt tous les effets secondaires -->
                     <?php foreach($medicament->effets_secondaires as $effet_secondaire): ?>
                         <li class="lead"><?= $effet_secondaire->effets_secondaires; ?></li>
                     <?php endforeach; ?>
@@ -42,6 +45,7 @@
 
                 <h5>Médicaments Réactifs</h5>
                 <ul>
+                    <!-- Boucle qui parcourt tous les médicaments réactifs -->
                     <?php foreach($medicament->reactions as $reaction): ?>
                         <li class="lead"><?= $reaction->nom; ?></li>
                         <ul>
