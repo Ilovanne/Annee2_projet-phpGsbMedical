@@ -1,4 +1,4 @@
-Projet 3 : php 
+Projet 3 : PHP/MVC/API/SQL
 
 Site web de GSB
 
