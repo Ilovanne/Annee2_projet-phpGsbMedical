@@ -23,6 +23,7 @@
         <li class="list-group-item"><a href="views/downloads/Charte_de_confidentialité.pdf" download>Charte de confidentialité</a></li>
         <li class="list-group-item"><a href="views/downloads/Droit_a_l_image.pdf" download>Droit a l'image</a></li>
         <li class="list-group-item"><a href="views/downloads/sauvegardeBD.sql" download>Sauvegarde de la base de donnée</a></li>
+        <li class="list-group-item"><a href="views/downloads/Charte_Graphique.pdf" download>Charte graphique</a></li>
     </ul>
 
     <div class="mt-4">
