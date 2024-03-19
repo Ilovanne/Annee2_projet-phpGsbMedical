@@ -60,6 +60,7 @@
             <div class="card-body">
                 <h5 class="card-title"><?= $activite->nom; ?></h5>
                 <p class="card-text"><?= $activite->description; ?></p>
+                <p class="card-text">Places restantes : <?= $activite->nombre_places; ?></p>
                 <p class="card-text"><?php echo date('d/m/Y H:i', strtotime($activite->date_heure)); ?></p>
                 <a href="inscription?activite=<?= $activite->id; ?>" class="btn btn-primary">Inscription</a>
             </div>
