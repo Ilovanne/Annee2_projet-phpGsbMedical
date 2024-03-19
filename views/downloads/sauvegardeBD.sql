@@ -1,12 +1,31 @@
+-- phpMyAdmin SQL Dump
+-- version 5.2.0
+-- https://www.phpmyadmin.net/
+--
+-- Hôte : 127.0.0.1:3306
+-- Généré le : mar. 19 mars 2024 à 07:29
+-- Version du serveur : 8.0.31
+-- Version de PHP : 7.4.33
+
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
+
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8mb4 */;
 
+--
+-- Base de données : `projet_php`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `activites`
+--
 
 DROP TABLE IF EXISTS `activites`;
 CREATE TABLE IF NOT EXISTS `activites` (
@@ -14,15 +33,26 @@ CREATE TABLE IF NOT EXISTS `activites` (
   `nom` varchar(255) DEFAULT NULL,
   `description` text NOT NULL,
   `date_heure` datetime DEFAULT NULL,
+  `nombre_places` int NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4;
 
-INSERT INTO `activites` (`id`, `nom`, `description`, `date_heure`) VALUES
-(1, 'Conférence sur les avancées en oncologie', 'Présentation des dernières avancées en oncologie par des experts renommés. Cette conférence abordera les nouveaux traitements, les thérapies ciblées et les défis à venir dans le domaine de l\'oncologie.', '2024-04-15 09:00:00'),
-(2, 'Atelier sur la gestion de la douleur chronique', 'Formation sur les approches modernes de gestion de la douleur chronique. Cet atelier inclura des discussions sur les techniques pharmacologiques, non pharmacologiques et multidisciplinaires pour gérer la douleur chronique.', '2024-04-20 14:00:00'),
-(3, 'Séminaire sur les thérapies géniques', 'Discussion sur les implications et les développements récents dans le domaine des thérapies géniques. Les sujets abordés incluront la technologie CRISPR, les vecteurs viraux et les applications cliniques des thérapies géniques.', '2024-05-10 10:30:00'),
-(4, 'Formation sur les nouvelles normes de sécurité des médicaments', 'Formation sur les dernières normes et réglementations de sécurité des médicaments. Cette formation fournira des informations sur les essais cliniques, la surveillance post-commercialisation et les bonnes pratiques de fabrication.', '2024-05-15 13:00:00'),
-(5, 'Table ronde sur les maladies cardiovasculaires', 'Échange d\'idées entre experts sur les traitements et les préventions des maladies cardiovasculaires. Cette table ronde discutera des avancées en matière de médicaments, de la modification du mode de vie et des défis dans la prise en charge des maladies cardiovasculaires.', '2024-06-05 11:00:00');
+--
+-- Déchargement des données de la table `activites`
+--
+
+INSERT INTO `activites` (`id`, `nom`, `description`, `date_heure`, `nombre_places`) VALUES
+(1, 'Conférence sur les avancées en oncologie', 'Présentation des dernières avancées en oncologie par des experts renommés. Cette conférence abordera les nouveaux traitements, les thérapies ciblées et les défis à venir dans le domaine de l\'oncologie.', '2024-04-15 09:00:00', 50),
+(2, 'Atelier sur la gestion de la douleur chronique', 'Formation sur les approches modernes de gestion de la douleur chronique. Cet atelier inclura des discussions sur les techniques pharmacologiques, non pharmacologiques et multidisciplinaires pour gérer la douleur chronique.', '2024-04-20 14:00:00', 50),
+(3, 'Séminaire sur les thérapies géniques', 'Discussion sur les implications et les développements récents dans le domaine des thérapies géniques. Les sujets abordés incluront la technologie CRISPR, les vecteurs viraux et les applications cliniques des thérapies géniques.', '2024-05-10 10:30:00', 50),
+(4, 'Formation sur les nouvelles normes de sécurité des médicaments', 'Formation sur les dernières normes et réglementations de sécurité des médicaments. Cette formation fournira des informations sur les essais cliniques, la surveillance post-commercialisation et les bonnes pratiques de fabrication.', '2024-05-15 13:00:00', 50),
+(5, 'Table ronde sur les maladies cardiovasculaires', 'Échange d\'idées entre experts sur les traitements et les préventions des maladies cardiovasculaires. Cette table ronde discutera des avancées en matière de médicaments, de la modification du mode de vie et des défis dans la prise en charge des maladies cardiovasculaires.', '2024-06-05 11:00:00', 50);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `effet_secondaire`
+--
 
 DROP TABLE IF EXISTS `effet_secondaire`;
 CREATE TABLE IF NOT EXISTS `effet_secondaire` (
@@ -31,6 +61,10 @@ CREATE TABLE IF NOT EXISTS `effet_secondaire` (
   PRIMARY KEY (`id_medicament`,`id_effet`),
   KEY `id_effet` (`id_effet`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `effet_secondaire`
+--
 
 INSERT INTO `effet_secondaire` (`id_medicament`, `id_effet`) VALUES
 (1, 1),
@@ -78,6 +112,12 @@ INSERT INTO `effet_secondaire` (`id_medicament`, `id_effet`) VALUES
 (22, 22),
 (22, 23);
 
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `effet_therapeutique`
+--
+
 DROP TABLE IF EXISTS `effet_therapeutique`;
 CREATE TABLE IF NOT EXISTS `effet_therapeutique` (
   `id_medicament` int NOT NULL,
@@ -85,6 +125,10 @@ CREATE TABLE IF NOT EXISTS `effet_therapeutique` (
   PRIMARY KEY (`id_medicament`,`id_effet`),
   KEY `id_effet` (`id_effet`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `effet_therapeutique`
+--
 
 INSERT INTO `effet_therapeutique` (`id_medicament`, `id_effet`) VALUES
 (1, 1),
@@ -132,6 +176,12 @@ INSERT INTO `effet_therapeutique` (`id_medicament`, `id_effet`) VALUES
 (22, 22),
 (22, 23);
 
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `est_inscrit`
+--
+
 DROP TABLE IF EXISTS `est_inscrit`;
 CREATE TABLE IF NOT EXISTS `est_inscrit` (
   `id_activite` int NOT NULL,
@@ -140,12 +190,44 @@ CREATE TABLE IF NOT EXISTS `est_inscrit` (
   KEY `email` (`email`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
 
+--
+-- Déclencheurs `est_inscrit`
+--
+DROP TRIGGER IF EXISTS `desinscription_activite`;
+DELIMITER $$
+CREATE TRIGGER `desinscription_activite` AFTER DELETE ON `est_inscrit` FOR EACH ROW BEGIN
+    UPDATE Activites 
+    SET nombre_places = nombre_places + 1
+    WHERE id = OLD.id_activite;
+END
+$$
+DELIMITER ;
+DROP TRIGGER IF EXISTS `inscription_activite`;
+DELIMITER $$
+CREATE TRIGGER `inscription_activite` AFTER INSERT ON `est_inscrit` FOR EACH ROW BEGIN
+    UPDATE Activites 
+    SET nombre_places = nombre_places - 1
+    WHERE id = NEW.id_activite;
+END
+$$
+DELIMITER ;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `liste_effets_secondaires`
+--
+
 DROP TABLE IF EXISTS `liste_effets_secondaires`;
 CREATE TABLE IF NOT EXISTS `liste_effets_secondaires` (
   `id` int NOT NULL AUTO_INCREMENT,
   `effet` text,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=31 DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `liste_effets_secondaires`
+--
 
 INSERT INTO `liste_effets_secondaires` (`id`, `effet`) VALUES
 (1, 'Nausées'),
@@ -179,12 +261,22 @@ INSERT INTO `liste_effets_secondaires` (`id`, `effet`) VALUES
 (29, 'Crampes musculaires'),
 (30, 'Étourdissements');
 
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `liste_effets_therapeutiques`
+--
+
 DROP TABLE IF EXISTS `liste_effets_therapeutiques`;
 CREATE TABLE IF NOT EXISTS `liste_effets_therapeutiques` (
   `id` int NOT NULL AUTO_INCREMENT,
   `effet` text,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=31 DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `liste_effets_therapeutiques`
+--
 
 INSERT INTO `liste_effets_therapeutiques` (`id`, `effet`) VALUES
 (1, 'Antalgique'),
@@ -218,6 +310,12 @@ INSERT INTO `liste_effets_therapeutiques` (`id`, `effet`) VALUES
 (29, 'Antirhumatismal'),
 (30, 'Antibactérien');
 
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `medicaments`
+--
+
 DROP TABLE IF EXISTS `medicaments`;
 CREATE TABLE IF NOT EXISTS `medicaments` (
   `id` int NOT NULL AUTO_INCREMENT,
@@ -227,6 +325,10 @@ CREATE TABLE IF NOT EXISTS `medicaments` (
   `dose_max_journaliere` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `medicaments`
+--
 
 INSERT INTO `medicaments` (`id`, `nom`, `date_creation`, `laboratoire_createur`, `dose_max_journaliere`) VALUES
 (1, 'Paracétamol', '2024-03-12', 'Sanofi', '500mg'),
@@ -252,6 +354,12 @@ INSERT INTO `medicaments` (`id`, `nom`, `date_creation`, `laboratoire_createur`,
 (21, 'Warfarine', '2024-02-21', 'Ranbaxy', '5mg'),
 (22, 'Céfalexine', '2024-02-20', 'Merck', '500mg');
 
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `reagit_avec`
+--
+
 DROP TABLE IF EXISTS `reagit_avec`;
 CREATE TABLE IF NOT EXISTS `reagit_avec` (
   `id_medicament_1` int NOT NULL,
@@ -260,6 +368,10 @@ CREATE TABLE IF NOT EXISTS `reagit_avec` (
   PRIMARY KEY (`id_medicament_1`,`id_medicament_2`),
   KEY `id_medicament_2` (`id_medicament_2`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `reagit_avec`
+--
 
 INSERT INTO `reagit_avec` (`id_medicament_1`, `id_medicament_2`, `reaction`) VALUES
 (1, 2, 'Peut causer des vertiges et une somnolence accrue'),
@@ -285,6 +397,12 @@ INSERT INTO `reagit_avec` (`id_medicament_1`, `id_medicament_2`, `reaction`) VAL
 (11, 21, 'Risque accru de maux de tête et de vertiges'),
 (11, 22, 'Peut augmenter le risque de troubles gastro-intestinaux');
 
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `utilisateurs`
+--
+
 DROP TABLE IF EXISTS `utilisateurs`;
 CREATE TABLE IF NOT EXISTS `utilisateurs` (
   `email` varchar(100) NOT NULL,
@@ -292,6 +410,21 @@ CREATE TABLE IF NOT EXISTS `utilisateurs` (
   `prenom` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`email`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `utilisateurs`
+--
+
+--
+-- Déclencheurs `utilisateurs`
+--
+DROP TRIGGER IF EXISTS `suppression_utilisateur`;
+DELIMITER $$
+CREATE TRIGGER `suppression_utilisateur` AFTER DELETE ON `utilisateurs` FOR EACH ROW BEGIN
+    DELETE FROM est_inscrit WHERE email = OLD.email;
+END
+$$
+DELIMITER ;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
